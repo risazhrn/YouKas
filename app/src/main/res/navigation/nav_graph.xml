@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/catatanFragment">
+
+    <fragment
+        android:id="@+id/catatanFragment"
+        android:name="org.d3if3100.youkas.ui.catatan.CatatanFragment"
+        android:label="fragment_catatan"
+        tools:layout="@layout/fragment_catatan" >
+        <action
+            android:id="@+id/action_catatanFragment_to_addCatatanFragment"
+            app:destination="@id/addCatatanFragment" />
+        <action
+            android:id="@+id/action_catatanFragment_to_detailCatatanFragment2"
+            app:destination="@id/detailCatatanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCatatanFragment"
+        android:name="org.d3if3100.youkas.ui.catatan.AddCatatanFragment"
+        android:label="fragment_add_catatan"
+        tools:layout="@layout/fragment_add_catatan" >
+        <action
+            android:id="@+id/action_addCatatanFragment_to_catatanFragment2"
+            app:destination="@id/catatanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailCatatanFragment"
+        android:name="org.d3if3100.youkas.ui.catatan.DetailCatatanFragment"
+        android:label="fragment_detail_catatan"
+        tools:layout="@layout/fragment_detail_catatan" >
+        <action
+            android:id="@+id/action_detailCatatanFragment_to_catatanFragment"
+            app:destination="@id/catatanFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.catatan.AddCatatanFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edtNonimal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName|text"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNominal"
+            app:layout_constraintEnd_toEndOf="@+id/edtNameNote"
+            app:layout_constraintStart_toStartOf="@+id/edtNameNote"
+            app:layout_constraintTop_toTopOf="@+id/tvNominal" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName|text"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintEnd_toEndOf="@+id/edtNonimal"
+            app:layout_constraintStart_toStartOf="@+id/edtNonimal"
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+        <EditText
+            android:id="@+id/edtKeterangan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName|text"
+            app:layout_constraintBottom_toBottomOf="@+id/tvKeterangan"
+            app:layout_constraintEnd_toEndOf="@+id/edtName"
+            app:layout_constraintStart_toStartOf="@+id/edtName"
+            app:layout_constraintTop_toTopOf="@+id/tvKeterangan" />
+
+        <TextView
+            android:id="@+id/tvJenisNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/jenis_catatan"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinnerJenisNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:entries="@array/jenis"
+            app:layout_constraintBottom_toBottomOf="@+id/tvJenisNote"
+            app:layout_constraintStart_toEndOf="@+id/tvJenisNote"
+            app:layout_constraintTop_toTopOf="@+id/tvJenisNote" />
+
+        <TextView
+            android:id="@+id/tvNameNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:text="@string/nama_catatan"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/tvJenisNote"
+            app:layout_constraintTop_toBottomOf="@+id/tvJenisNote" />
+
+        <EditText
+            android:id="@+id/edtNameNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName|text"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNameNote"
+            app:layout_constraintEnd_toEndOf="@+id/spinnerJenisNote"
+            app:layout_constraintStart_toStartOf="@+id/spinnerJenisNote"
+            app:layout_constraintTop_toTopOf="@+id/tvNameNote" />
+
+        <TextView
+            android:id="@+id/tvNominal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:text="@string/nominal"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/tvNameNote"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameNote" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:text="@string/nama_lengkap"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/tvNominal"
+            app:layout_constraintTop_toBottomOf="@+id/tvNominal" />
+
+        <TextView
+            android:id="@+id/tvKeterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:text="@string/keterangan"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <Button
+            android:id="@+id/btnSimpan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/simpan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/edtKeterangan"
+            app:layout_constraintTop_toBottomOf="@+id/edtKeterangan" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

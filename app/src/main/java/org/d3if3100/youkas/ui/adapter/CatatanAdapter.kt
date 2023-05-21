@@ -13,26 +13,15 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CatatanAdapter: androidx.recyclerview.widget.ListAdapter<Catatan, CatatanAdapter.ViewHolder>(DIFF_CALLBACK) {
-    companion object {
-        private val DIFF_CALLBACK =
-            object : DiffUtil.ItemCallback<Catatan>() {
-                override fun areItemsTheSame(
-                    oldItem: Catatan,
-                    newItem: Catatan
-                ): Boolean {
-                    return oldItem.id == newItem.id
-                }
+class CatatanAdapter: RecyclerView.Adapter<CatatanAdapter.ViewHolder>() {
 
-                override fun areContentsTheSame(
-                    oldItem: Catatan,
-                    newItem: Catatan
-                ): Boolean {
-                    return oldItem == newItem
-                }
-            }
+    private val data = mutableListOf<Catatan>()
+
+    fun updateData(newData: List<Catatan>) {
+        data.clear()
+        data.addAll(newData)
+            notifyDataSetChanged()
     }
-
     class ViewHolder(private val binding: ItemCatatanBinding) : RecyclerView.ViewHolder(binding.root) {
         private val dateFormatter = SimpleDateFormat("dd MMMM yyyy",
             Locale("id", "ID")
@@ -42,7 +31,8 @@ class CatatanAdapter: androidx.recyclerview.widget.ListAdapter<Catatan, CatatanA
 
         fun bind(catatan: Catatan) = with(binding) {
             tvCatatanTanggal.text = dateFormatter.format(Date(catatan.created_at))
-            tvCatatanKeterangan.text = catatan.keterangan
+            tvJudulCatatan.text = catatan.judul_catatan
+            tvCatatanPembuat.text = catatan.nama
             when(catatan.jenis_catatan) {
                 "Pemasukan" -> {
                     tvCatatanNominal.text = "+" + formatCurrency.format(catatan.nominal).toString()
@@ -53,8 +43,6 @@ class CatatanAdapter: androidx.recyclerview.widget.ListAdapter<Catatan, CatatanA
                     tvCatatanNominal.setTextColor(Color.parseColor("#ff0000"))
                 }
             }
-            tvJenisCatatan.text = catatan.jenis_catatan
-            tvCatatanPembuat.text = catatan.nama
 
             val direction =
                 CatatanFragmentDirections.actionCatatanFragmentToDetailCatatanFragment(catatanId = catatan.id)
@@ -71,7 +59,11 @@ class CatatanAdapter: androidx.recyclerview.widget.ListAdapter<Catatan, CatatanA
         return ViewHolder(binding)
     }
 
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
     override fun onBindViewHolder(holder: CatatanAdapter.ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(data[position])
     }
 }

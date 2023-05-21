@@ -17,4 +17,7 @@
     <string name="konfirmasi_hapus">Apakah anda ingin menghapus catatan?</string>
     <string name="hapus">Hapus</string>
     <string name="batal">Batal</string>
+    <string name="about">About</string>
+    <string name="tentang">Tentang Aplikasi</string>
+    <string name="switch_layout">Ubah tampilan</string>
 </resources>

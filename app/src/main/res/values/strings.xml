@@ -9,4 +9,8 @@
     <string name="nama_lengkap">Nama Lengkap</string>
     <string name="nama_catatan">Judul Catatan</string>
     <string name="bagikan">Bagikan</string>
+    <string name="tv">TextView</string>
+    <string name="bagikan_template">Nama Lengkap: %1$s\nJenis Catatan: %2$s\nNominal: %3$s\nKeterangan: %4$s</string>
+    <string name="detail_catatan">Detail Catatan</string>
+    <string name="tambah_catatan">Tambah Catatan</string>
 </resources>

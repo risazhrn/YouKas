@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import org.d3if3100.youkas.R
@@ -80,19 +79,19 @@ class AddCatatanFragment : Fragment() {
     ): Boolean {
         if (TextUtils.isEmpty(jenis)) {
             Toast.makeText(requireContext(), "Pilih jenis catatan", Toast.LENGTH_LONG).show()
-            return true;
+            return true
         } else if (TextUtils.isEmpty(nameNote)) {
             Toast.makeText(requireContext(), "Masukan judul catatan", Toast.LENGTH_LONG).show()
-            return true;
+            return true
         } else if (TextUtils.isEmpty(nominal)) {
             Toast.makeText(requireContext(), "Masukan Nominal Uang", Toast.LENGTH_LONG).show()
-            return true;
+            return true
         } else if (TextUtils.isEmpty(name)) {
             Toast.makeText(requireContext(), "Masukan Nama Lengkap", Toast.LENGTH_LONG).show()
-            return true;
+            return true
         } else if (TextUtils.isEmpty(keterangan)) {
             Toast.makeText(requireContext(), "Masukan Keterangan", Toast.LENGTH_LONG).show()
-            return true;
+            return true
         }
         return false
     }

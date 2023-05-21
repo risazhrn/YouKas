@@ -11,41 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/edtNonimal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="numberSigned"
-            app:layout_constraintBottom_toBottomOf="@+id/tvNominal"
-            app:layout_constraintEnd_toEndOf="@+id/edtNameNote"
-            app:layout_constraintStart_toStartOf="@+id/edtNameNote"
-            app:layout_constraintTop_toTopOf="@+id/tvNominal" />
-
-        <EditText
-            android:id="@+id/edtName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName|text"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintEnd_toEndOf="@+id/edtNonimal"
-            app:layout_constraintStart_toStartOf="@+id/edtNonimal"
-            app:layout_constraintTop_toTopOf="@+id/tvName" />
-
-        <EditText
-            android:id="@+id/edtKeterangan"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName|text"
-            app:layout_constraintBottom_toBottomOf="@+id/tvKeterangan"
-            app:layout_constraintEnd_toEndOf="@+id/edtName"
-            app:layout_constraintStart_toStartOf="@+id/edtName"
-            app:layout_constraintTop_toTopOf="@+id/tvKeterangan" />
-
         <TextView
             android:id="@+id/tvJenisNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="32dp"
             android:text="@string/jenis_catatan"
             android:textColor="#000000"
@@ -54,74 +24,117 @@
 
         <Spinner
             android:id="@+id/spinnerJenisNote"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
             android:entries="@array/jenis"
             app:layout_constraintBottom_toBottomOf="@+id/tvJenisNote"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvJenisNote"
             app:layout_constraintTop_toTopOf="@+id/tvJenisNote" />
 
-        <TextView
-            android:id="@+id/tvNameNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
-            android:text="@string/nama_catatan"
-            android:textColor="#000000"
-            app:layout_constraintStart_toStartOf="@+id/tvJenisNote"
-            app:layout_constraintTop_toBottomOf="@+id/tvJenisNote" />
 
-        <EditText
-            android:id="@+id/edtNameNote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName|text"
-            app:layout_constraintBottom_toBottomOf="@+id/tvNameNote"
-            app:layout_constraintEnd_toEndOf="@+id/spinnerJenisNote"
-            app:layout_constraintStart_toStartOf="@+id/spinnerJenisNote"
-            app:layout_constraintTop_toTopOf="@+id/tvNameNote" />
-
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tvNominal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
-            android:text="@string/nominal"
-            android:textColor="#000000"
-            app:layout_constraintStart_toStartOf="@+id/tvNameNote"
-            app:layout_constraintTop_toBottomOf="@+id/tvNameNote" />
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName">
 
-        <TextView
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNonimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nominal"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
-            android:text="@string/nama_lengkap"
-            android:textColor="#000000"
-            app:layout_constraintStart_toStartOf="@+id/tvNominal"
-            app:layout_constraintTop_toBottomOf="@+id/tvNominal" />
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvJenisNote">
 
-        <TextView
-            android:id="@+id/tvKeterangan"
-            android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_lengkap"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvNameNote"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
-            android:text="@string/keterangan"
-            android:textColor="#000000"
-            app:layout_constraintStart_toStartOf="@+id/tvName"
-            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNominal">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNameNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama_catatan"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvKeterangan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvNameNote"
+            app:layout_constraintStart_toStartOf="@+id/tvNameNote"
+            app:layout_constraintTop_toBottomOf="@+id/tvNameNote">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtKeterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/keterangan" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/btnSimpan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
             android:text="@string/simpan"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/edtKeterangan"
-            app:layout_constraintTop_toBottomOf="@+id/edtKeterangan" />
-
+            app:layout_constraintEnd_toEndOf="@+id/tvKeterangan"
+            app:layout_constraintStart_toStartOf="@+id/tvKeterangan"
+            app:layout_constraintTop_toBottomOf="@+id/tvKeterangan" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

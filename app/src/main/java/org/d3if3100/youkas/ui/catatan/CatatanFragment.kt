@@ -93,7 +93,7 @@ class CatatanFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_main, menu)
+        inflater.inflate(R.menu.manu_main, menu)
         val menuItem = menu.findItem(R.id.action_switch_layout)
         setIcon(menuItem)
 

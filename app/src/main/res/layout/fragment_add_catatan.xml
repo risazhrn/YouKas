@@ -15,7 +15,7 @@
             android:id="@+id/edtNonimal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName|text"
+            android:inputType="numberSigned"
             app:layout_constraintBottom_toBottomOf="@+id/tvNominal"
             app:layout_constraintEnd_toEndOf="@+id/edtNameNote"
             app:layout_constraintStart_toStartOf="@+id/edtNameNote"

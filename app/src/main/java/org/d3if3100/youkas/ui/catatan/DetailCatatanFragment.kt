@@ -3,13 +3,13 @@ package org.d3if3100.youkas.ui.catatan
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.d3if3100.youkas.R
 import org.d3if3100.youkas.databinding.FragmentDetailCatatanBinding
 import org.d3if3100.youkas.db.RoomDB
@@ -24,7 +24,7 @@ class DetailCatatanFragment : Fragment() {
 
     private var catatanId: Long = -1
     private var _binding: FragmentDetailCatatanBinding? = null
-    private lateinit var keuangan: Catatan
+    private lateinit var catatan: Catatan
     private val args: DetailCatatanFragmentArgs by navArgs()
     private val viewModel: CatatanViewModel by lazy {
         val db = RoomDB.getInstance(requireContext())
@@ -44,6 +44,7 @@ class DetailCatatanFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentDetailCatatanBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -64,7 +65,7 @@ class DetailCatatanFragment : Fragment() {
             )
             val formatCurrency = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
 
-            keuangan = it
+            catatan = it
             binding.tvDetailName.setText("Nama Lengkap: " + it.nama)
             binding.tvDetailKeuanganTanggal.setText("Tanggal: " + dateFormatter.format(Date(it.created_at)))
             binding.tvDetailKeterangan.setText("Deskripsi: " + it.keterangan)
@@ -72,13 +73,13 @@ class DetailCatatanFragment : Fragment() {
             when (it.jenis_catatan) {
                 "Pemasukan" -> {
                     binding.tvDetailNominal.setText(
-                        "+" + formatCurrency.format(keuangan.nominal).toString()
+                        "+" + formatCurrency.format(catatan.nominal).toString()
                     )
                     binding.tvDetailNominal.setTextColor(Color.parseColor("#00ff00"))
                 }
                 "Pengeluaran" -> {
                     binding.tvDetailNominal.setText(
-                        "-" + formatCurrency.format(keuangan.nominal).toString()
+                        "-" + formatCurrency.format(catatan.nominal).toString()
                     )
                     binding.tvDetailNominal.setTextColor(Color.parseColor("#ff0000"))
                 }
@@ -91,10 +92,10 @@ class DetailCatatanFragment : Fragment() {
 
         val message = getString(
             R.string.bagikan_template,
-            keuangan.nama,
-            keuangan.jenis_catatan,
-            formatCurrency.format(keuangan.nominal),
-            keuangan.keterangan
+            catatan.nama,
+            catatan.jenis_catatan,
+            formatCurrency.format(catatan.nominal),
+            catatan.keterangan
         )
 
         val shareIntent = Intent(Intent.ACTION_SEND)
@@ -105,6 +106,32 @@ class DetailCatatanFragment : Fragment() {
         ) {
             startActivity(shareIntent)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.manu_main, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_hapus) {
+            hapusData()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun hapusData() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setMessage(R.string.konfirmasi_hapus)
+            .setPositiveButton(getString(R.string.hapus)) { _, _ ->
+                viewModel.deleteCatatan(catatan)
+                findNavController().navigate(R.id.action_detailCatatanFragment_to_catatanFragment)
+            }
+            .setNegativeButton(getString(R.string.batal)) { dialog, _ ->
+                dialog.cancel()
+            }
+            .show()
     }
 
     override fun onDestroyView() {

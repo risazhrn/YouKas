@@ -25,4 +25,8 @@ class CatatanViewModel(private val db: CatatanDao): ViewModel() {
     fun clearData() = viewModelScope.launch(Dispatchers.IO){
         db.clearData()
     }
+
+    fun deleteCatatan(catatan: Catatan) = viewModelScope.launch(Dispatchers.IO) {
+        db.deleteCatatan(catatan)
+    }
 }

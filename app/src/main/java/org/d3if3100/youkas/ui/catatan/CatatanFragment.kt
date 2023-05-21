@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.d3if3100.youkas.R
 import org.d3if3100.youkas.databinding.FragmentCatatanBinding
 import org.d3if3100.youkas.db.RoomDB
@@ -20,6 +21,7 @@ class CatatanFragment : Fragment() {
 
     private var _binding: FragmentCatatanBinding? = null
     private var _catatanAdapter: CatatanAdapter? = null
+    private var saldo: Int = 0;
     private val viewModel: CatatanViewModel by lazy {
         val db = RoomDB.getInstance(requireContext())
         val factory = CatatanViewModelFactory(db.dao)
@@ -40,7 +42,6 @@ class CatatanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initCatatanAdapter()
         val formatCurrency = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
-        var saldo = 0;
         viewModel.getTotalByJenis("Pemasukan").observe(viewLifecycleOwner) { it ->
             saldo += it.jumlah
             binding.tvJumlahMasuk.text = formatCurrency.format(it.jumlah)
@@ -73,6 +74,7 @@ class CatatanFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        saldo = 0
         _catatanAdapter = null
     }
 

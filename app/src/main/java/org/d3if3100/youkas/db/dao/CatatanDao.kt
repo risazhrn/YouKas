@@ -2,6 +2,7 @@ package org.d3if3100.youkas.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import org.d3if3100.youkas.db.entity.Catatan
@@ -23,4 +24,7 @@ interface CatatanDao {
 
     @Query("DELETE FROM catatan")
     fun clearData()
+
+    @Delete
+    fun deleteCatatan(catatan: Catatan)
 }

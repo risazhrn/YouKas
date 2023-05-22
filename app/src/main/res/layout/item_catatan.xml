@@ -10,7 +10,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/backgroundItem"
+        >
 
         <TextView
             android:id="@+id/tvCatatanPembuat"
@@ -19,6 +21,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/tv"
+            android:textColor="@color/textColorItem"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,6 +33,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/tv"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/tvCatatanPembuat"
             app:layout_constraintTop_toBottomOf="@+id/tvCatatanPembuat" />
 
@@ -39,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/tv"
+            android:textColor="@color/textColorItem"
             app:layout_constraintStart_toStartOf="@+id/tvCatatanNominal"
             app:layout_constraintTop_toBottomOf="@+id/tvCatatanNominal" />
 
@@ -49,6 +54,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:text="@string/tv"
+            android:textColor="@color/textColorItem"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tvJudulCatatan"
             app:layout_constraintTop_toBottomOf="@+id/tvJudulCatatan" />

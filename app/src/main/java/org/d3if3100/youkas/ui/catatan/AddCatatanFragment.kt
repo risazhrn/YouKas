@@ -80,16 +80,16 @@ class AddCatatanFragment : Fragment() {
         if (TextUtils.isEmpty(jenis)) {
             Toast.makeText(requireContext(), "Pilih jenis catatan", Toast.LENGTH_LONG).show()
             return true
-        } else if (TextUtils.isEmpty(nameNote)) {
-            Toast.makeText(requireContext(), "Masukan judul catatan", Toast.LENGTH_LONG).show()
+        } else if (TextUtils.isEmpty(name)) {
+            Toast.makeText(requireContext(), "Masukan Nama Lengkap", Toast.LENGTH_LONG).show()
             return true
         } else if (TextUtils.isEmpty(nominal)) {
             Toast.makeText(requireContext(), "Masukan Nominal Uang", Toast.LENGTH_LONG).show()
             return true
-        } else if (TextUtils.isEmpty(name)) {
-            Toast.makeText(requireContext(), "Masukan Nama Lengkap", Toast.LENGTH_LONG).show()
+        } else if (TextUtils.isEmpty(nameNote)) {
+            Toast.makeText(requireContext(), "Masukan judul catatan", Toast.LENGTH_LONG).show()
             return true
-        } else if (TextUtils.isEmpty(keterangan)) {
+        }  else if (TextUtils.isEmpty(keterangan)) {
             Toast.makeText(requireContext(), "Masukan Keterangan", Toast.LENGTH_LONG).show()
             return true
         }

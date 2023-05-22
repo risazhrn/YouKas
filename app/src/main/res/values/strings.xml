@@ -17,7 +17,9 @@
     <string name="konfirmasi_hapus">Apakah anda ingin menghapus catatan?</string>
     <string name="hapus">Hapus</string>
     <string name="batal">Batal</string>
-    <string name="about">About</string>
+    <string name="about">
+Youkas adalah sebuah aplikasi yang dirancang untuk membantu pencatatan pengeluaran dan pemasukan dalam suatu organisasi.\nAplikasi Youkas menyediakan fitur pencatatan yang sederhana, memungkinkan Anda untuk mencatat setiap transaksi dengan mudah. Anda dapat memasukkan, melihat, dan menghapus detail pengeluaran dan pemasukan.</string>
     <string name="tentang">Tentang Aplikasi</string>
     <string name="switch_layout">Ubah tampilan</string>
+    <string name="select">Pilih Jenis Catatan</string>
 </resources>

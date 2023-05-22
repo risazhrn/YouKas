@@ -1,76 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.catatan.DetailCatatanFragment">
 
-    <Button
-        android:id="@+id/btnShare"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/bagikan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailKeuanganTanggal" />
+        android:background="@color/backgroundItem"
+        android:layout_margin="50dp">
 
-    <TextView
-        android:id="@+id/tvDetailJenisNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/hello_blank_fragment"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvDetailNominal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:background="@color/backgroundBtn"
+            android:text="@string/bagikan"
+            android:textColor="@color/textColorBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailKeuanganTanggal" />
 
-    <TextView
-        android:id="@+id/tvDetailNominal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tvDetailJenisNote"
-        app:layout_constraintStart_toStartOf="@+id/tvDetailJenisNote"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailJenisNote" />
+        <TextView
+            android:id="@+id/tvDetailJenisNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="@string/hello_blank_fragment"
+            android:textColor="@color/textColorItem"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvDetailNominal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvDetailName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tvDetailNominal"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="@+id/tvDetailNominal"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailNominal" />
+        <TextView
+            android:id="@+id/tvDetailNominal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/tv"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailJenisNote"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailJenisNote"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailJenisNote" />
 
-    <TextView
-        android:id="@+id/tvDetailKeterangan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tvDetailName"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvDetailName"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailName" />
+        <TextView
+            android:id="@+id/tvDetailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/tv"
+            android:textAlignment="center"
+            android:textColor="@color/textColorItem"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailNominal"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailNominal"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailNominal" />
 
-    <TextView
-        android:id="@+id/tvDetailKeuanganTanggal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tvDetailKeterangan"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvDetailKeterangan"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailKeterangan" />
+        <TextView
+            android:id="@+id/tvDetailKeterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/tv"
+            android:textAlignment="center"
+            android:textColor="@color/textColorItem"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailName"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailName" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvDetailKeuanganTanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/tv"
+            android:textAlignment="center"
+            android:textColor="@color/textColorItem"
+            app:layout_constraintEnd_toEndOf="@+id/tvDetailKeterangan"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailKeterangan"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailKeterangan" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

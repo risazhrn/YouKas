@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.d3if3100.youkas.databinding.ItemCatatanBinding
 import org.d3if3100.youkas.db.entity.Catatan
@@ -36,11 +35,11 @@ class CatatanAdapter: RecyclerView.Adapter<CatatanAdapter.ViewHolder>() {
             when(catatan.jenis_catatan) {
                 "Pemasukan" -> {
                     tvCatatanNominal.text = "+" + formatCurrency.format(catatan.nominal).toString()
-                    tvCatatanNominal.setTextColor(Color.parseColor("#00ff00"))
+                    tvCatatanNominal.setTextColor(Color.parseColor("#228b22"))
                 }
                 "Pengeluaran" -> {
                     tvCatatanNominal.text = "-" + formatCurrency.format(catatan.nominal).toString()
-                    tvCatatanNominal.setTextColor(Color.parseColor("#ff0000"))
+                    tvCatatanNominal.setTextColor(Color.parseColor("#f32013"))
                 }
             }
 
@@ -53,7 +52,7 @@ class CatatanAdapter: RecyclerView.Adapter<CatatanAdapter.ViewHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatatanAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemCatatanBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
@@ -63,7 +62,7 @@ class CatatanAdapter: RecyclerView.Adapter<CatatanAdapter.ViewHolder>() {
         return data.size
     }
 
-    override fun onBindViewHolder(holder: CatatanAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(data[position])
     }
 }

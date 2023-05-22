@@ -26,14 +26,12 @@ class CatatanFragment : Fragment() {
 
     private var _binding: FragmentCatatanBinding? = null
     private var _catatanAdapter: CatatanAdapter? = null
-    private var saldo: Int = 0;
+    private var saldo: Int = 0
     private val viewModel: CatatanViewModel by lazy {
         val db = RoomDB.getInstance(requireContext())
         val factory = CatatanViewModelFactory(db.dao)
         ViewModelProvider(this, factory)[CatatanViewModel::class.java]
     }
-
-    private lateinit var myAdapter: CatatanAdapter
 
     private val binding get() = _binding!!
     private val catatanAdapter get() = _catatanAdapter!!
@@ -46,8 +44,8 @@ class CatatanFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
-        _binding = FragmentCatatanBinding.inflate(inflater, container, false)
+    ): View {
+        this._binding = FragmentCatatanBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -60,7 +58,7 @@ class CatatanFragment : Fragment() {
             activity?.invalidateOptionsMenu()
         }
         val formatCurrency = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
-        viewModel.getTotalByJenis("Pemasukan").observe(viewLifecycleOwner) { it ->
+        viewModel.getTotalByJenis("Pemasukan").observe(viewLifecycleOwner) {
             saldo += it.jumlah
             binding.tvJumlahMasuk.text = formatCurrency.format(it.jumlah)
 
@@ -105,7 +103,7 @@ class CatatanFragment : Fragment() {
                 R.id.action_catatanFragment_to_aboutFragment
             )
             return true
-        } else if(item.itemId == R.id.action_switch_layout) {
+        } else if (item.itemId == R.id.action_switch_layout) {
             lifecycleScope.launch {
                 layoutDataStore.saveLayout(!isLinearLayout, requireContext())
             }
@@ -121,7 +119,6 @@ class CatatanFragment : Fragment() {
             setHasFixedSize(true)
         }
         viewModel.getAllCatatan.observe(viewLifecycleOwner) {
-//            binding.tvJumlahMasuk.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
             catatanAdapter.updateData(it)
         }
     }

@@ -16,23 +16,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="64dp"
             android:text="@string/jenis_catatan"
-            android:textColor="#000000"
+            android:textColor="@color/textColor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinnerJenisNote"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             android:entries="@array/jenis"
-            app:layout_constraintBottom_toBottomOf="@+id/tvJenisNote"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvJenisNote"
-            app:layout_constraintTop_toTopOf="@+id/tvJenisNote" />
+            app:layout_constraintStart_toStartOf="@+id/tvJenisNote"
+            app:layout_constraintTop_toBottomOf="@+id/tvJenisNote" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -42,6 +42,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
+            app:layout_constraintWidth_max="488dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName">
@@ -52,10 +53,12 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/nominal"
                 android:inputType="number"
+                android:textColorHint="#616161"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,19 +69,22 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
+            app:layout_constraintWidth_max="488dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvJenisNote">
+            app:layout_constraintTop_toBottomOf="@+id/spinnerJenisNote">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nama_lengkap"
+                android:textColorHint="#616161"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,6 +95,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
+            app:layout_constraintWidth_max="488dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvNominal">
@@ -98,10 +105,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nama_catatan"
+                android:textColorHint="#616161"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,6 +121,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
+            app:layout_constraintWidth_max="488dp"
             app:layout_constraintEnd_toEndOf="@+id/tvNameNote"
             app:layout_constraintStart_toStartOf="@+id/tvNameNote"
             app:layout_constraintTop_toBottomOf="@+id/tvNameNote">
@@ -120,10 +130,11 @@
                 android:id="@+id/edtKeterangan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/keterangan" />
+                android:hint="@string/keterangan"
+                android:textColorHint="#616161"
+                tools:ignore="TextContrastCheck,TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
         <Button
             android:id="@+id/btnSimpan"
@@ -131,10 +142,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
+            android:paddingHorizontal="30dp"
+            android:paddingVertical="10dp"
             android:text="@string/simpan"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvKeterangan"
             app:layout_constraintStart_toStartOf="@+id/tvKeterangan"
-            app:layout_constraintTop_toBottomOf="@+id/tvKeterangan" />
+            app:layout_constraintTop_toBottomOf="@+id/tvKeterangan"
+            tools:ignore="TextContrastCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -10,9 +10,9 @@
         android:id="@+id/tvSaldo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Saldo"
-        android:textColor="#000000"
+        android:textColor="@color/textColor"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSaldo" />
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        android:textColor="#000000"
+        android:textColor="@color/textColor"
         app:layout_constraintStart_toStartOf="@+id/tvPemasukan"
         app:layout_constraintTop_toBottomOf="@+id/tvPemasukan" />
 
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:text="Pengeluaran"
-        android:textColor="#000000"
+        android:textColor="@color/textColor"
         app:layout_constraintBottom_toBottomOf="@+id/tvPemasukan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvPemasukan" />
@@ -59,7 +59,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="Pemasukan"
-        android:textColor="#000000"
+        android:textColor="@color/textColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvJumlahSaldo" />
 
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        android:textColor="#000000"
+        android:textColor="@color/textColor"
         app:layout_constraintEnd_toEndOf="@+id/tvPengeluaran"
         app:layout_constraintTop_toBottomOf="@+id/tvPengeluaran" />
 
@@ -81,8 +81,8 @@
         android:layout_marginBottom="32dp"
         android:clickable="true"
         android:contentDescription="Tambah Catatan"
-        android:src="@drawable/ic_add"
-        app:backgroundTint="#00C853"
+        android:src="@drawable/baseline_mode_edit_outline_24"
+        app:backgroundTint="@color/green_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -90,7 +90,9 @@
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

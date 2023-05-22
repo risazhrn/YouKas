@@ -1,5 +1,6 @@
 package org.d3if3100.youkas.ui.catatan
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -41,7 +42,7 @@ class DetailCatatanFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         _binding = FragmentDetailCatatanBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
         return binding.root
@@ -55,6 +56,7 @@ class DetailCatatanFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initViewModel() {
         viewModel.getDetailCatatan(catatanId).observe(requireActivity()) {
             if (it == null) return@observe
@@ -65,27 +67,24 @@ class DetailCatatanFragment : Fragment() {
             val formatCurrency = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
 
             catatan = it
-            binding.tvDetailName.setText("Nama Lengkap: " + it.nama)
-            binding.tvDetailKeuanganTanggal.setText("Tanggal: " + dateFormatter.format(Date(it.created_at)))
-            binding.tvDetailKeterangan.setText("Deskripsi: " + it.keterangan)
-            binding.tvDetailJenisNote.setText(it.jenis_catatan)
+            binding.tvDetailName.text = "Nama Lengkap : " + it.nama
+            binding.tvDetailKeuanganTanggal.text = "Tanggal : " + dateFormatter.format(Date(it.created_at))
+            binding.tvDetailKeterangan.text = "Keterangan : " + it.keterangan
+            binding.tvDetailJenisNote.text = it.jenis_catatan
             when (it.jenis_catatan) {
                 "Pemasukan" -> {
-                    binding.tvDetailNominal.setText(
-                        "+" + formatCurrency.format(catatan.nominal).toString()
-                    )
-                    binding.tvDetailNominal.setTextColor(Color.parseColor("#00ff00"))
+                    binding.tvDetailNominal.text = "+" + formatCurrency.format(catatan.nominal).toString()
+                    binding.tvDetailNominal.setTextColor(Color.parseColor("#228b22"))
                 }
                 "Pengeluaran" -> {
-                    binding.tvDetailNominal.setText(
-                        "-" + formatCurrency.format(catatan.nominal).toString()
-                    )
+                    binding.tvDetailNominal.text = "-" + formatCurrency.format(catatan.nominal).toString()
                     binding.tvDetailNominal.setTextColor(Color.parseColor("#ff0000"))
                 }
             }
         }
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     private fun shareKeuangan() {
         val formatCurrency = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
 

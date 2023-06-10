@@ -1,0 +1,37 @@
+[
+  {
+    "nama": "Risa Zahrani",
+    "keterangan": "Uang Kas Januari 2023",
+    "jenis_catatan": "pemasukan",
+    "nominal": 1000000,
+    "judul_catatan": "Pemasukan Kas",
+  },
+  {
+    "nama": "Mawar Rose",
+    "keterangan": "Beli buku",
+    "jenis_catatan": "pengeluaran",
+    "nominal": 100000,
+    "judul_catatan": "Beli Buku",
+  },
+  {
+    "nama": "Ellysca",
+    "keterangan": "Uang Kas Februari 2023",
+    "jenis_catatan": "pemasukan",
+    "nominal": 200000,
+    "judul_catatan": "Pemasukan Kas",
+  },
+  {
+    "nama": "Lalisa Yoshi",
+    "keterangan": "Beli Sapu",
+    "jenis_catatan": "pengeluaran",
+    "nominal": 300000,
+    "judul_catatan": "Belanja Sapu",
+  },
+  {
+    "nama": "Hirashi Sakura",
+    "keterangan": "Uang Kas Maret 2023",
+    "jenis_catatan": "pemasukan",
+    "nominal": 200000,
+    "judul_catatan": "Pemasukan Kas",
+  }
+]

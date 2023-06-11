@@ -6,13 +6,18 @@
     <item
         android:id="@+id/menu_about"
         android:title="@string/tentang"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_news"
+        android:icon="@drawable/baseline_newspaper_24"
+        android:title="@string/news"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_switch_layout"
         android:icon="@drawable/baseline_grid_view_24"
         android:title="@string/switch_layout"
         app:showAsAction="ifRoom" />
-
 
 </menu>

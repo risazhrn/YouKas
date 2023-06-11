@@ -108,6 +108,11 @@ class CatatanFragment : Fragment() {
                 layoutDataStore.saveLayout(!isLinearLayout, requireContext())
             }
             return true
+        } else if (item.itemId == R.id.menu_news) {
+            findNavController().navigate(
+                R.id.action_catatanFragment_to_newsFragment
+            )
+            return true
         }
         return super.onOptionsItemSelected(item)
     }

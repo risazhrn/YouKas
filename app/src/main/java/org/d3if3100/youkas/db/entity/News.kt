@@ -8,5 +8,5 @@ data class News(
     @Json(name = "totalResults")
     val totalResults:Int = 0,
     @Json(name = "articles")
-    val articles: Array<Article>? = null,
+    val articles: List<Article> = listOf(),
 )

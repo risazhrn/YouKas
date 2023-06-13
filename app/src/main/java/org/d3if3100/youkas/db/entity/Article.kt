@@ -3,12 +3,8 @@ package org.d3if3100.youkas.db.entity
 import com.squareup.moshi.Json
 
 data class Article(
-//    source": {
-//"id": "google-news",
-//"name": "Google News"
-//},
     @Json(name = "author")
-    val author: String = "",
+    val author: String? = "",
     @Json(name = "title")
     val title: String = "",
     @Json(name = "description")

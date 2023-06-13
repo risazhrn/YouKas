@@ -24,4 +24,5 @@ Youkas adalah sebuah aplikasi yang dirancang untuk membantu pencatatan pengeluar
     <string name="select">Pilih Jenis Catatan</string>
     <string name="news">News</string>
     <string name="judul_article">Judul Artikel</string>
+    <string name="network_error">Network Error</string>
 </resources>

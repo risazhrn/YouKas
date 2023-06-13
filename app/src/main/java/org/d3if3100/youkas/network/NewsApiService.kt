@@ -25,7 +25,10 @@ private val retrofit =
 interface NewsApiService {
     @Headers("Authorization: c54758d7521b4bbfbc7200e85eb1095a")
     @GET("top-headlines")
-    suspend fun getNews(@Query("country") country: String = "id"): News
+    suspend fun getNews(
+        @Query("country") country: String = "us",
+        @Query("category") category:String = "business"
+    ): News
 }
 
 object NewsApi {

@@ -1,16 +1,21 @@
 package org.d3if3100.youkas.model
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.d3if3100.youkas.db.entity.Article
 import org.d3if3100.youkas.db.entity.News
 import org.d3if3100.youkas.network.NewsApi
+import org.d3if3100.youkas.network.UpdateWorker
 import java.lang.Exception
+import java.util.concurrent.TimeUnit
 
 class NewsViewModel: ViewModel() {
     private val data = MutableLiveData<News>()
@@ -36,4 +41,15 @@ class NewsViewModel: ViewModel() {
     fun getData() : LiveData<News> = data
 
     fun getStatus(): LiveData<NewsApi.ApiStatus> = status
+
+    fun scheduleUpdater(app: Application) {
+        val request = OneTimeWorkRequestBuilder<UpdateWorker>()
+            .setInitialDelay(1, TimeUnit.MINUTES)
+            .build()
+        WorkManager.getInstance(app).enqueueUniqueWork(
+            UpdateWorker.WORK_NAME,
+            ExistingWorkPolicy.REPLACE,
+            request
+        )
+    }
 }

@@ -3,20 +3,16 @@ package org.d3if3100.youkas.network
 import android.Manifest
 import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.navigation.NavDeepLinkBuilder
-import androidx.navigation.Navigation
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import org.d3if3100.youkas.MainActivity
 import org.d3if3100.youkas.R
-import org.d3if3100.youkas.databinding.FragmentNewsBinding
 
 class UpdateWorker(
     context: Context,

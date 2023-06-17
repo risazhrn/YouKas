@@ -10,10 +10,13 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.navigation.NavDeepLinkBuilder
+import androidx.navigation.Navigation
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import org.d3if3100.youkas.MainActivity
 import org.d3if3100.youkas.R
+import org.d3if3100.youkas.databinding.FragmentNewsBinding
 
 class UpdateWorker(
     context: Context,
@@ -61,13 +64,7 @@ class UpdateWorker(
     }
 
     private fun getPendingIntent(context: Context): PendingIntent {
-        val intent = Intent(context, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
-                Intent.FLAG_ACTIVITY_CLEAR_TASK
-        var flags = PendingIntent.FLAG_UPDATE_CURRENT
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            flags = flags or PendingIntent.FLAG_IMMUTABLE
-        }
-        return PendingIntent.getActivity(context, 0, intent, flags)
+
+        return NavDeepLinkBuilder(context).setGraph(R.navigation.nav_graph).setDestination(R.id.newsFragment).createPendingIntent()
     }
 }

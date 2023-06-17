@@ -12,6 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import org.d3if3100.youkas.databinding.ActivityMainBinding
+import org.d3if3100.youkas.databinding.FragmentNewsBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = getString(R.string.channel_name)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(CHANNEL_ID, name, importance)
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE)
                     as NotificationManager?
             manager?.createNotificationChannel(channel)
-        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
